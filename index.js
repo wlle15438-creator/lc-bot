@@ -1,19 +1,19 @@
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, IntentsBitField } = require('discord.js');
 const client = new Client({ 
     intents: [
-        GatewayIntentBits.Guilds, 
-        GatewayIntentBits.GuildMessages, 
-        GatewayIntentBits.MessageContent
+        IntentsBitField.Flags.Guilds, 
+        IntentsBitField.Flags.GuildMessages, 
+        IntentsBitField.Flags.MessageContent
     ] 
 });
 
 client.once('ready', () => {
-    console.log(`تم تشغيل البوت بنجاح ومستعد للعمل باسم: ${client.user.tag}`);
+    console.log('البوت جاهز ومتصل بنجاح');
 });
 
 client.on('messageCreate', (message) => {
     if (message.content === 'بينج') {
-        message.reply('بونج! 🏓 البوت شغال وبأفضل حال.');
+        message.reply('بونج! 🏓 البوت شغال بأفضل حال ومستقر.');
     }
 });
 
